@@ -3,9 +3,7 @@ import os
 from dotenv import load_dotenv
 from pytimeparse import parse
 
-
 load_dotenv()
-
 TG_TOKEN = os.getenv('TOKEN')
 TG_CHAT_ID = os.getenv('LOGIN')
 
