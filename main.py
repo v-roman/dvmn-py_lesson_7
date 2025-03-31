@@ -3,10 +3,6 @@ import os
 from dotenv import load_dotenv
 from pytimeparse import parse
 
-load_dotenv()
-TG_TOKEN = os.getenv('TOKEN')
-TG_CHAT_ID = os.getenv('LOGIN')
-
 
 def choose(author_id, message):
     secs = parse(message)
@@ -34,7 +30,9 @@ def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='
 
 def main():
     global bot
-    bot = ptbot.Bot(TG_TOKEN)
+    load_dotenv()
+    tg_token = os.getenv('TOKEN')
+    bot = ptbot.Bot(tg_token)
     bot.reply_on_message(choose)
     bot.run_bot()
 
